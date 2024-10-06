@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #71b7e6;
+        }
+
+        #calci {
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .a{
+            width: 300px;
+            height: 40px;
+            font-size: 30px;
+            margin-bottom: 30px;
+            text-align: right;
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+
+        .b{
+            width: 50px;
+            height: 50px;
+            font-size: 36px;
+            margin: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            border: 1px solid black;
+        }
+
+        .b:hover {
+            background-color:  green;
+        }
+
+        #calci {
+            width: 400px;
+            height: 400px;
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="calci">
+        <input type="text" id="res" class="a" disabled><br>
+        <input type="button" class="b" value="1" onclick="fun('1')">
+        <input type="button" class="b" value="2" onclick="fun('2')">
+        <input type="button" class="b" value="3" onclick="fun('3')">
+        <input type="button" class="b" value="+" onclick="fun('+')">
+        <br>
+
+        <input type="button" class="b" value="4" onclick="fun('4')">
+        <input type="button" class="b" value="5" onclick="fun('5')">
+        <input type="button" class="b" value="6" onclick="fun('6')">
+        <input type="button" class="b" value="-" onclick="fun('-')">
+        <br>
+
+        <input type="button" class="b" value="7" onclick="fun('7')">
+        <input type="button" class="b" value="8" onclick="fun('8')">
+        <input type="button" class="b" value="9" onclick="fun('9')">
+        <input type="button" class="b" value="*" onclick="fun('*')">
+        <br>
+
+        <input type="button" class="b" value="C" onclick="show()">
+        <input type="button" class="b" value="0" onclick="fun('0')">
+        <input type="button" class="b" value="=" onclick="Result()">
+        <input type="button" class="b" value="/" onclick="fun('/')">
+        <br>
+    </div>
+
+    <script>
+        function fun(value) {
+            document.getElementById("res").value += value;
+        }
+
+        function show() {
+            document.getElementById("res").value = "";
+        }
+
+        function Result() {
+            const result = document.getElementById("res").value;
+            try {
+                document.getElementById("res").value = eval(result);
+            } catch (error) {
+                document.getElementById("res").value = "Error";
+            }
+        }
+    </script>
+
+</body>
+</html>
